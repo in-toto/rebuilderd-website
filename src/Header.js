@@ -54,8 +54,8 @@ class Header extends React.Component {
         <div className="hero-body">
           <div id="status">
             <h1 className="title">Reproducible status</h1>
-            <p>Welcome to the official experimental Arch Linux <a href="https://github.com/kpcyrd/rebuilderd">rebuilderd</a> instance, this page shows the results of verification builds of official Arch Linux packages in the repositories in an effort to be fully reproducible.</p>
-            <p>For more information read the <a href="https://reproducible-builds.org/">Reproducible Builds website</a> or join the <a href="ircs://irc.libera.chat/archlinux-reproducible">#archlinux-reproducible</a> IRC channel on <a href="https://libera.chat/">Libera Chat</a>.</p>
+            <p>Welcome to the <a href="https://ssl.engineering.nyu.edu" target="_blank">NYU Secure Systems Lab</a> <a href="https://github.com/kpcyrd/rebuilderd" target="_blank">rebuilderd</a> instance. This page shows the results of verification builds of official Arch Linux packages in the repositories in an effort to be fully reproducible. This instance is intended to serve as one node in a network of similar but independent rebuilders.</p>
+            <p>For more information read the <a href="https://reproducible-builds.org/">Reproducible Builds website</a> or join the <a href="ircs://libera.chat/archlinux-reproducible">#archlinux-reproducible</a> IRC channel on <a href="https://libera.chat/">libera.chat</a>.</p>
             <br/>
             <ul className="repo-summary">
             {!fetchFailed && !dashboard &&

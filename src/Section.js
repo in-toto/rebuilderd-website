@@ -42,7 +42,7 @@ class Section extends React.Component {
       <section key={suite.name} className="section pt-4 pb-4" id={ suite.name }>
         <div className="tile box has-background-info">
           <Collapsible trigger={ name } open>
-            {good.length > 0 && <StatusSection label="good" pkgs={ good } />}
+            {good.length > 0 && <StatusSection label="good" pkgs={ good } open />}
             {bad.length > 0 && <StatusSection label="bad" pkgs={ bad } open />}
             {unknown.length > 0 && <StatusSection label="unknown" pkgs={ unknown } open />}
           </Collapsible>

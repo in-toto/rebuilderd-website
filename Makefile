@@ -11,7 +11,7 @@ PORT ?= 9966
 HOST ?= localhost
 VERSION ?= $(shell git describe --tags --always --dirty --match=v* 2>/dev/null | sed 's/^v//' || \
 			cat $(CURDIR)/.version 2> /dev/null || echo 0.0.0-unreleased)
-ARCHLOGO = archlogo.8a05bc7f6cd1.svg
+#ARCHLOGO = archlogo.8a05bc7f6cd1.svg
 
 all: vendor
 
@@ -33,8 +33,8 @@ js-watcher: vendor
 dist: vendor
 	@mkdir -p "dist/${PACKAGE_NAME}-${VERSION}"
 	cp -avf public/index.html "dist/${PACKAGE_NAME}-${VERSION}/index.html"
-	svgcleaner public/${ARCHLOGO} "dist/${PACKAGE_NAME}-${VERSION}/archlogo-${VERSION}.svg"
-	cp -vf public/favicon.ico -t "dist/${PACKAGE_NAME}-${VERSION}/"
+	#svgcleaner public/${ARCHLOGO} "dist/${PACKAGE_NAME}-${VERSION}/archlogo-${VERSION}.svg"
+	#cp -vf public/favicon.ico -t "dist/${PACKAGE_NAME}-${VERSION}/"
 	$(SASS) -t compressed src/style.scss "dist/${PACKAGE_NAME}-${VERSION}/bundle-${VERSION}.css"
 	$(YARN) run -s browserify -t babelify src/index.js | $(YARN) run -s terser --compress --mangle > "dist/${PACKAGE_NAME}-${VERSION}/bundle-${VERSION}.js"
 
@@ -43,7 +43,7 @@ dist: vendor
 	@sed -i 's/bundle.css/bundle-${VERSION}.css/' "dist/${PACKAGE_NAME}-${VERSION}/index.html"
 
 	# sed the svg version in css
-	@sed -i 's/${ARCHLOGO}/archlogo-${VERSION}.svg/' "dist/${PACKAGE_NAME}-${VERSION}/bundle-${VERSION}.css"
+	#@sed -i 's/${ARCHLOGO}/archlogo-${VERSION}.svg/' "dist/${PACKAGE_NAME}-${VERSION}/bundle-${VERSION}.css"
 
 	cd dist && tar --owner=0 --group=0 -czvf ${PACKAGE_NAME}-${VERSION}.tar.gz "${PACKAGE_NAME}-${VERSION}"
 
@@ -51,7 +51,7 @@ dist: vendor
 # Yarn
 
 .PHONY: vendor
-vendor: submodule .yarninstall
+vendor: .yarninstall
 
 .yarninstall: package.json
 	@$(YARN) install --silent

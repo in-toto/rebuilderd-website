@@ -3,7 +3,7 @@
 $hero-body-padding: 1.5rem 2rem;
 $box-padding: 5px 10px 10px 10px;
 
-@import "../.external/archlinux-common-style/sass/archlinux.scss";
+@import "./sass/archlinux.scss";
 
 @import "../node_modules/bulma/sass/utilities/_all.sass";
 @import "../node_modules/bulma/sass/helpers/_all.sass";
